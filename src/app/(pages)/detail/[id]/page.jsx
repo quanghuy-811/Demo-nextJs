@@ -1,16 +1,15 @@
-import React from 'react'
-import { getProductById } from '@/app/action/page';
+import React from "react";
+import { getProductById } from "@/app/action/productServices";
 
 // viết function call API => server action
 
-
 const page = async (props) => {
-    const { id } = props.params; // destructuring params từ props
+    const { id } = await props.params; // destructuring params từ props
     const res = await getProductById(id);
-    if(!res){
+    if (!res) {
         return (
-            <div className='flex items-center justify-center h-screen'>
-                <h1 className='text-2xl text-red-500'>Product not found</h1>
+            <div className="flex items-center justify-center h-screen">
+                <h1 className="text-2xl text-red-500">Product not found</h1>
             </div>
         );
     }
@@ -34,7 +33,7 @@ const page = async (props) => {
                 Add to Cart
             </button>
         </div>
-    )
-}
+    );
+};
 
-export default page
+export default page;

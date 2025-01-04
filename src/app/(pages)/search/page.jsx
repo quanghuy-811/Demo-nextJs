@@ -1,6 +1,6 @@
-import React from 'react'
-import { getAllProducts } from '@/app/action/page';
-import Link from 'next/link';
+import React from "react";
+import { getAllProducts } from "@/app/action/productServices";
+import Link from "next/link";
 
 const page = async (props) => {
     const keyword = props.searchParams.keyword || "";
@@ -14,18 +14,19 @@ const page = async (props) => {
                         return (
                             <Link href={`/detail/${item.id}`} className="group">
                                 <img src={item.image} />
-                                <h3 className="mt-4 text-sm text-gray-700">{item.name}</h3>
-                                <p className="mt-1 text-lg font-medium text-gray-900">${item.price}</p>
+                                <h3 className="mt-4 text-sm text-gray-700">
+                                    {item.name}
+                                </h3>
+                                <p className="mt-1 text-lg font-medium text-gray-900">
+                                    ${item.price}
+                                </p>
                             </Link>
-                        )
+                        );
                     })}
-
                 </div>
             </div>
         </div>
+    );
+};
 
-
-    )
-}
-
-export default page
+export default page;
